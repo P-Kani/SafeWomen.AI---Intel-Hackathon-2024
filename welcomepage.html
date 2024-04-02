@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web App</title>
+  <link rel="stylesheet" href="welcomepage.css">
+</head>
+<body>
+  
+  <!-- First Page -->
+  <div id="firstPage" class="page">
+    <div class="centered">
+      <h1>Safe Women</h1>
+            <div class="image-container">
+      <img src="safewomen.jpeg" alt="Image" width="200">
+      
+    </div>
+  </div>
+  </div>
+
+  <!-- Second Page (hidden by default) -->
+  
+  <script>
+    // Function to show the second page after 2 seconds
+        setTimeout(function() {
+          window.location.href = 'first.html'; // Assuming first.html is in the same directory as this HTML file
+        }, 2000);
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.avatar-editor {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.avatar-preview {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  border: 2px solid #333;
+  margin-right: 20px;
+}
+
+.customization-options {
+  max-width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: blueviolet;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #6a0dad;
+}

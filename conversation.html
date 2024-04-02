@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abuse Support Chat</title>
+<link rel="stylesheet" href="conversation.css">
+<link rel="icon" href="icon.png" type="image/x-icon">
+</head>
+<style>
+    .icon-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 1000;
+}
+</style>
+<body>
+    <div class="icon-wrapper">
+        <a href="first.html"><img src="icon.png" alt="Icon" width="32" height="32"></a>
+    </div>
+<div id="container">
+    <div id="avatar">
+        <img src="avatar.jpeg" width="250" height="350" alt="Avatar">
+    </div>
+    <div id="chatbot">
+        <div id="chatOutput"></div>
+        <input type="text" id="userInput" placeholder="Type your message here...">
+        <button onclick="sendUserMessage()" id="sendButton">Send</button>
+    </div>
+    
+</div>
+<script src="conversation.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Birth Year</title>
+  <link rel="stylesheet" href="first.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: palevioletred;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: lightgreen;
+    }
+    .button-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    .button-wrapper .button {
+      flex-grow: 1;
+      margin-right: 20px;
+    }
+    .button-wrapper .button:last-child {
+      margin-right: 0;
+    }
+    .button-wrapper button {
+      width: 60%;
+      padding: 10px;
+      background-color: blueviolet;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button-wrapper button:hover {
+      background-color: #8a2be2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Select Your Birth Year</h1>
+    <form id="birthYearForm" action="avatar.html" method="GET">
+      <label for="birthYear">Birth Year:</label>
+      <input type="number" id="birthYear" name="birthYear" min="1900" max="2022" required>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="button-wrapper" >
+      <div class="button">
+        <button id="redirectConversationButton">Conversation</button>
+      </div>
+      <div class="button">
+        <button id="redirectExploreButton">Explore</button>
+      </div>
+      <div class="button">
+      <button id="redirectProgressButton" >Progress</button>
+    </div>
+  </div>
+  <script>
+    document.getElementById("birthYearForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission behavior
+      var birthYear = document.getElementById("birthYear").value;
+      // Append birthYear as query parameter to the action URL
+      window.location.href = "avatar.html?birthYear=" + birthYear;
+    });
+
+    document.getElementById("redirectConversationButton").onclick = function() {
+      window.location.href = "conversation.html"; // Change "conversation.html" to the URL of the page you want to redirect to for conversation
+    };
+
+    document.getElementById("redirectExploreButton").onclick = function() {
+      window.location.href = "explore.html"; // Change "explore.html" to the URL of the page you want to redirect to for explore
+    };
+    document.getElementById("redirectProgressButton").onclick = function() {
+      window.location.href = "progress.html"; // Change "explore.html" to the URL of the page you want to redirect to for explore
+    };
+  </script>
+</body>
+</html>

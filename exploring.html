@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploration Game</title>
+    <link rel="icon" href="icon.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            background-image: url("explore.jpeg");
+            position: relative;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position:center;
+        }
+        #player {
+            width: 50px;
+            height: 50px;
+           
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="icon-wrapper">
+        <a href="first.html"><img src="icon.png" alt="Icon" width="32" height="32"></a>
+    </div>
+    <div id="game-container">
+        <img id="player" src="avatar.jpeg">  
+    </div>
+
+    
+
+
+    <script>
+        const player = document.getElementById("player");
+
+        // Initial player position
+        let playerX = 50;
+        let playerY = 50;
+        player.style.left = `${playerX}px`;
+        player.style.top = `${playerY}px`;
+
+        // Event listener for arrow key presses
+        document.addEventListener("keydown", (event) => {
+            const key = event.key;
+            const step = 10; // Adjust the step size as needed
+
+            switch (key) {
+                case "ArrowUp":
+                    playerY -= step;
+                    break;
+                case "ArrowDown":
+                    playerY += step;
+                    break;
+                case "ArrowLeft":
+                    playerX -= step;
+                    break;
+                case "ArrowRight":
+                    playerX += step;
+                    break;
+            }
+
+            // Update player position
+            player.style.left = `${playerX}px`;
+            player.style.top = `${playerY}px`;
+        });
+    </script>
+</body>
+</html>

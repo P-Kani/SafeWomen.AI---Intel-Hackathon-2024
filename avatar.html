@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Maker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .avatar-parts {
+            display: flex;
+            justify-content: space-between;
+        }
+        .avatar-part {
+            width: 50px;
+            height: 50px;
+            margin: 30px;
+            border: 5px solid #333;
+            box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.228);
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        #avatar-container {
+            width: 200px;
+            height: 200px;
+            border: 5px dashed #333;
+            box-shadow: 5px 3px 5px 3px rgba(0, 0, 0, 0.249);
+            position: relative;
+            overflow: hidden; /* Added overflow: hidden */
+        }
+        .draggable {
+            position: absolute;
+            cursor: move;
+        }
+        .button{
+            text-align: center;
+            width: 120px;
+            height: 50px;
+            
+            border-radius: 10px;
+            transition: .3s ease-in-out;
+            position: absolute;
+            right: 70px;
+            
+            cursor: pointer;
+        }
+        .button button:hover {
+            background-color:palevioletred;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="avatar-parts">
+        <div class="avatar-part" draggable="true"><img src="face.png" class="draggable" width="70px" height="70px"></div>
+        <div class="avatar-part" draggable="true"><img src="face1.png" class="draggable" width="70px" height="70px"></div>
+        <div class="avatar-part" draggable="true"><img src="dress1.jpeg" class="draggable" width="70px" height="70px"></div>
+        <div class="avatar-part" draggable="true"><img src="dress.jpeg" class="draggable" width="70px" height="70px"></div>
+    </div>
+
+    <div id="avatar-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Drop avatar parts here<img src="body.jpeg">
+        
+    </div>
+    <div class="button">
+        <button id="redirectButton">Have a Conversation</button>
+    </div>
+
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            const draggableElement = document.createElement("img"); // Create img element
+            draggableElement.src = data; // Set src to the dropped data
+            draggableElement.classList.add("draggable"); // Add draggable class
+            draggableElement.width = 50; // Set width and height
+            draggableElement.height = 50;
+            const offsetX = event.clientX - event.target.getBoundingClientRect().left - draggableElement.offsetWidth / 2;
+            const offsetY = event.clientY - event.target.getBoundingClientRect().top - draggableElement.offsetHeight / 2;
+            draggableElement.style.left = Math.max(0, Math.min(offsetX, event.target.offsetWidth - draggableElement.offsetWidth)) + "px";
+            draggableElement.style.top = Math.max(0, Math.min(offsetY, event.target.offsetHeight - draggableElement.offsetHeight)) + "px";
+            event.target.appendChild(draggableElement);
+        }
+
+        const avatarParts = document.querySelectorAll(".avatar-part");
+        avatarParts.forEach(part => {
+            part.addEventListener("dragstart", event => {
+                event.dataTransfer.setData("text", event.target.querySelector("img").src); // Get src of the img element
+            });
+        });
+
+        document.getElementById("redirectButton").onclick = function() {
+            window.location.href = "conversation.html"; // Change "next_page.html" to the URL of the page you want to redirect to
+        };
+    </script>
+</body>
+</html>
+
